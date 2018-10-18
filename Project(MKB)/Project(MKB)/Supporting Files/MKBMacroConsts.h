@@ -12,12 +12,13 @@
 
 //TODO:周连
 
-//获取群公告信息
-static NSString *const API_CHAT_GROUP_ANNOUNCEMENT = @"teach/classGroupChat/getGroupChatInfo";
 
-static NSString *const PARENT_AUTOMATIC_LOGIN = @"Parent_Automatic_Login";//是否自动登录
+static NSString *const AUTOMATIC_LOGIN = @"Automatic_Login";//是否自动登录
+static NSString *const ADVERT_IS_MOTION_LONGIN = @"ADVERT_IS_MOTION_LONGIN";   //自动登录或手动登录
+static NSString *const ADVERT_IS_LAUNCHANIMATION_END = @"ADVERT_IS_LaunchAnimation_end";   //自动登录或手动登录
 
-static NSString *const PARENTLOGINUSERINFORMATION = @"ParentUserLoginInformation"; //用户登录的信息
+
+static NSString *const LOGINUSERINFORMATION = @"UserLoginInformation"; //用户登录的信息
 
 static NSString *const LOGIN_ACCOUNT = @"Login_Account";//账号的存储
 
@@ -66,7 +67,21 @@ static NSString *const ZL_IM_OFFNETWORK_TIP  = @"世界上最遥远的距离就�
 
 #endif
 
+/**
+ 页面类型
+ */
+typedef NS_ENUM(NSInteger,ZLPageServiceType) {
+    ZLPageSerivceTypeFindPassWord = 0,//找回密码
+    ZLPageSerivceTypeChangePhoneNumber,//更改手机号
+    ZLPageServicePasswordTypeResetPassword,//重置密码
+};
 
+/*跳转类型*/
+typedef NS_ENUM(NSInteger, kZLPushType) {
+    kZLPushTypeController     = 0,//跳转Controller
+    kZLPushTypeInWeb          = 1,//跳转内链
+    kZLPushTypeOutWeb         = 2,//跳转外链
+};
 
 extern NSString * ZL_NoticeMethods[];      /* 通知的KEY */
 /* 通知的KEY */

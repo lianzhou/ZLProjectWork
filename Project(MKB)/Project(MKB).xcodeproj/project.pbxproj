@@ -18,6 +18,10 @@
 		3099C67821772400007EE1CC /* ZLTabBarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3099C67721772400007EE1CC /* ZLTabBarService.m */; };
 		3099C67A217730E2007EE1CC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3099C679217730E1007EE1CC /* AVFoundation.framework */; };
 		3099C67C2177311B007EE1CC /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3099C67B2177311B007EE1CC /* AssetsLibrary.framework */; };
+		30C08D4E21783A5F00354C23 /* MKBUserDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C08D4D21783A5F00354C23 /* MKBUserDataModel.m */; };
+		30C08D50217845D200354C23 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30C08D4F217845D200354C23 /* IDETemplateMacros.plist */; };
+		30C08D542178554800354C23 /* MKBLoginInputTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C08D532178554800354C23 /* MKBLoginInputTextFieldView.m */; };
+		30C08D572178690100354C23 /* MKBFindPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C08D562178690100354C23 /* MKBFindPwdViewController.m */; };
 		30DFF4B42176DD4D006898FD /* MKBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DFF4B32176DD4D006898FD /* MKBLoginViewController.m */; };
 		30DFF4B72176E00B006898FD /* MKBLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DFF4B62176E00B006898FD /* MKBLoginModel.m */; };
 		D17347DA125F8499FD228165 /* libPods-Project(MKB).a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7C1DE3B888E9CCC90CBC26 /* libPods-Project(MKB).a */; };
@@ -45,6 +49,13 @@
 		3099C67721772400007EE1CC /* ZLTabBarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLTabBarService.m; sourceTree = "<group>"; };
 		3099C679217730E1007EE1CC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3099C67B2177311B007EE1CC /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		30C08D4C21783A5F00354C23 /* MKBUserDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKBUserDataModel.h; sourceTree = "<group>"; };
+		30C08D4D21783A5F00354C23 /* MKBUserDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKBUserDataModel.m; sourceTree = "<group>"; };
+		30C08D4F217845D200354C23 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = IDETemplateMacros.plist; sourceTree = "<group>"; };
+		30C08D522178554800354C23 /* MKBLoginInputTextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKBLoginInputTextFieldView.h; sourceTree = "<group>"; };
+		30C08D532178554800354C23 /* MKBLoginInputTextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKBLoginInputTextFieldView.m; sourceTree = "<group>"; };
+		30C08D552178690100354C23 /* MKBFindPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKBFindPwdViewController.h; sourceTree = "<group>"; };
+		30C08D562178690100354C23 /* MKBFindPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKBFindPwdViewController.m; sourceTree = "<group>"; };
 		30DFF4B22176DD4D006898FD /* MKBLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKBLoginViewController.h; sourceTree = "<group>"; };
 		30DFF4B32176DD4D006898FD /* MKBLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKBLoginViewController.m; sourceTree = "<group>"; };
 		30DFF4B52176E00B006898FD /* MKBLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKBLoginModel.h; sourceTree = "<group>"; };
@@ -119,6 +130,7 @@
 				304D3D3F21747AA1005AE24F /* main.m */,
 				3099C66C21770237007EE1CC /* MKBMacroConsts.h */,
 				3099C66D21770237007EE1CC /* MKBMacroConsts.m */,
+				30C08D4F217845D200354C23 /* IDETemplateMacros.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -130,6 +142,15 @@
 				3059BB2A2175AE1600AF4F99 /* AppDelegate.m */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		30C08D512178551F00354C23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30C08D522178554800354C23 /* MKBLoginInputTextFieldView.h */,
+				30C08D532178554800354C23 /* MKBLoginInputTextFieldView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		30DFF4AB2176D074006898FD /* BaseVC(基类) */ = {
@@ -165,6 +186,7 @@
 		30DFF4AE2176D86C006898FD /* Login(登录) */ = {
 			isa = PBXGroup;
 			children = (
+				30C08D512178551F00354C23 /* View */,
 				30DFF4B12176DC6E006898FD /* Model */,
 				30DFF4B02176DC56006898FD /* Handler */,
 				30DFF4AF2176DC47006898FD /* Controllers */,
@@ -177,6 +199,8 @@
 			children = (
 				30DFF4B22176DD4D006898FD /* MKBLoginViewController.h */,
 				30DFF4B32176DD4D006898FD /* MKBLoginViewController.m */,
+				30C08D552178690100354C23 /* MKBFindPwdViewController.h */,
+				30C08D562178690100354C23 /* MKBFindPwdViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +217,8 @@
 			children = (
 				30DFF4B52176E00B006898FD /* MKBLoginModel.h */,
 				30DFF4B62176E00B006898FD /* MKBLoginModel.m */,
+				30C08D4C21783A5F00354C23 /* MKBUserDataModel.h */,
+				30C08D4D21783A5F00354C23 /* MKBUserDataModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30C08D50217845D200354C23 /* IDETemplateMacros.plist in Resources */,
 				304D3D3A21747AA1005AE24F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +385,9 @@
 				3099C66E21770237007EE1CC /* MKBMacroConsts.m in Sources */,
 				3099C67821772400007EE1CC /* ZLTabBarService.m in Sources */,
 				30DFF4B42176DD4D006898FD /* MKBLoginViewController.m in Sources */,
+				30C08D572178690100354C23 /* MKBFindPwdViewController.m in Sources */,
+				30C08D4E21783A5F00354C23 /* MKBUserDataModel.m in Sources */,
+				30C08D542178554800354C23 /* MKBLoginInputTextFieldView.m in Sources */,
 				3099C66A2176FEE9007EE1CC /* MKBProgramBaseViewController.m in Sources */,
 				3099C674217723F5007EE1CC /* ZLNavigationService.m in Sources */,
 				3099C675217723F5007EE1CC /* ZLNetWorkService.m in Sources */,

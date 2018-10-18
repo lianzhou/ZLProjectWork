@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MKBLoginViewController : UIViewController
-
+@interface MKBLoginViewController : MKBProgramBaseViewController
+//判断自动登录手动登陆
+@property(nonatomic, assign) BOOL isAuto_login;
 @end
