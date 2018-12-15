@@ -7,18 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MKBVersionUpdateView.h"
+
+@class MKBVersionUpdateModel;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIWindow *myWindow;
+@property (nonatomic, strong) NSDate * trackStartTime;
 
- 
-
-//@property (nonatomic, strong) NSDate * trackStartTime;
-//
-//// 版本更新数据
-//@property (nonatomic, strong) JZVersionUpdateModel * updateModel;
+// 版本更新数据
+@property (nonatomic, strong) MKBVersionUpdateModel * updateModel;
 
 @property (nonatomic, assign) BOOL hasShowNormalUpdateView;
 

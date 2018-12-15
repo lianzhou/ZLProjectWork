@@ -36,37 +36,37 @@
   ],
   "dependencies": {
     "AFNetworking": [
-      "~> 3.0.4"
+
     ],
     "SDWebImage": [
-      "~> 3.7.6"
+      "~> 3.8.2"
     ],
     "FMDB": [
-      "~> 2.7.2"
+
     ],
     "DZNEmptyDataSet": [
-      "~> 1.7.3"
+
     ],
     "YYKit": [
-      "~> 1.0.9"
+
     ],
     "Masonry": [
-      "~> 0.6.4"
+
     ],
     "MBProgressHUD": [
 
     ],
     "IQKeyboardManager": [
-      "~> 3.3.7"
+
     ],
     "MJExtension": [
-      "~> 3.0.10"
+
     ],
     "MJRefresh": [
-      "~> 3.1.0"
+
     ],
     "GPUImage": [
-      "~> 0.1.7"
+
     ],
     "TOCropViewController": [
 

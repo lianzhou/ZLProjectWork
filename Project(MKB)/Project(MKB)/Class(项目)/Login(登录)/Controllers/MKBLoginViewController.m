@@ -7,9 +7,11 @@
 //
 
 #import "MKBLoginViewController.h"
-#import "MKBUserDataModel.h"
+#import "MKBUserLoginModel.h"
 #import "MKBLoginInputTextFieldView.h"
 #import "MKBFindPwdViewController.h"
+#import "MKBLoginServiceManager.h"
+#import "MKBUserManager.h"
 @interface MKBLoginViewController()<UITextFieldDelegate,YYTextKeyboardObserver>
 
 //头部标题
@@ -17,8 +19,6 @@
 
 //手机号/ID号
 @property (nonatomic,strong) MKBLoginInputTextFieldView *numberTextFieldView;
-
-
 
 //密码
 @property (nonatomic,strong) MKBLoginInputTextFieldView *passwordTextFieldView;
@@ -119,6 +119,7 @@
         }
     }
 }
+
 //覆盖图片
 - (void)createMaskImageView {
     
@@ -188,19 +189,19 @@
 //登录用户信息
 - (void)requestDataSource {
     
-//    [ZLUserDataServiceManager queryDataBaseTableWithAccountParams:nil withSuccessBlock:^(NSArray *dataArray) {
-//
-//        NSArray *array = [dataArray sortedArrayUsingComparator:^NSComparisonResult(ZLUserDataModel *obj1, ZLUserDataModel *obj2) {
-//            return [ZLIFISNULL(obj2.loginTime) compare:obj1.loginTime];
-//        }];
-//
-//        _dataArrayM = [NSMutableArray arrayWithArray:array];
-//        NSLog(@"_dataArrayM ---------- %@",_dataArrayM);
-//
-//    } withFaileBlock:^(NSString *errorStr) {
-//        [_dataArrayM removeAllObjects];
-//        NSLog(@"errorStr ---------- %@",errorStr);
-//    }];
+    //    [ZLUserDataServiceManager queryDataBaseTableWithAccountParams:nil withSuccessBlock:^(NSArray *dataArray) {
+    //
+    //        NSArray *array = [dataArray sortedArrayUsingComparator:^NSComparisonResult(ZLUserDataModel *obj1, ZLUserDataModel *obj2) {
+    //            return [ZLIFISNULL(obj2.loginTime) compare:obj1.loginTime];
+    //        }];
+    //
+    //        _dataArrayM = [NSMutableArray arrayWithArray:array];
+    //        NSLog(@"_dataArrayM ---------- %@",_dataArrayM);
+    //
+    //    } withFaileBlock:^(NSString *errorStr) {
+    //        [_dataArrayM removeAllObjects];
+    //        NSLog(@"errorStr ---------- %@",errorStr);
+    //    }];
 }
 #pragma mark -Create UI
 //创建登录界面UI
@@ -496,14 +497,14 @@
 //协议点击查看
 - (void)protocolButtonClick:(UIButton *)button {
     
-//    ZLWebViewController *webViewController = [[ZLWebViewController alloc] init];
-//    ZLWebDataContentModel *webContentModel = [[ZLWebDataContentModel alloc] init];
-//    webContentModel.articleHtmlStr = LOGIN_REGISTERTEACH;
-//    webContentModel.articleNameStr = @"服务协议";
-//    webContentModel.pageTitleStr = @"服务协议";
-//    webContentModel.webPageDisplayType = ZLWebPageDisplayTypeNormal;
-//    webViewController.contentModel = webContentModel;
-//    [self.navigationController pushViewController:webViewController animated:YES];
+    //    ZLWebViewController *webViewController = [[ZLWebViewController alloc] init];
+    //    ZLWebDataContentModel *webContentModel = [[ZLWebDataContentModel alloc] init];
+    //    webContentModel.articleHtmlStr = LOGIN_REGISTERTEACH;
+    //    webContentModel.articleNameStr = @"服务协议";
+    //    webContentModel.pageTitleStr = @"服务协议";
+    //    webContentModel.webPageDisplayType = ZLWebPageDisplayTypeNormal;
+    //    webViewController.contentModel = webContentModel;
+    //    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 //登录按钮
@@ -519,7 +520,7 @@
     
     //收起输入框
     _isShow = YES;
-   
+    
     
     NSString *phoneStr = _numberTextFieldView.zl_TextField.text;
     NSString *passwordStr = _passwordTextFieldView.zl_TextField.text;
@@ -538,34 +539,36 @@
         [ZLAlertHUD showTipTitle:@"输入的密码不符合要求"];
         return;
     }
-     [self enterMainUI];
-     /*
+    
+    [ZLUserDefaults setObject:ZLIFISNULL(phoneStr) forKey:LOGIN_ACCOUNT];
+    
+    [ZLUserDefaults setObject:ZLIFISNULL(passwordStr) forKey:LOGIN_PASSWORD];
+      [self enterMainUI];
+    return;
     if (!isAutoLogin) {
         _loginButton.userInteractionEnabled = NO;
         [ZLAlertHUD showHUDTitle:@"加载中..." toView:self.view];
     }
     NSMutableDictionary *paramsDic = [NSMutableDictionary dictionary];
-    [paramsDic setObject:ZLIFISNULL(phoneStr) forKey:@"username"];
-    
+    [paramsDic setObject:ZLIFISNULL(phoneStr) forKey:@"account"];
     [paramsDic setObject:ZLIFISNULL(passwordStr) forKey:@"password"];
-    NSString *deviceType = [ZLSystemUtils getMyDeviceAllInfo];
-    [paramsDic setObject:ZLIFISNULL(deviceType) forKey:@"deviceType"];
-   
+    
+    //    NSString *deviceType = [ZLSystemUtils getMyDeviceAllInfo];
+    //     [paramsDic setObject:ZLIFISNULL(deviceType) forKey:@"deviceType"];
+    
     @weakify(self)
-    [ZLLoginServiceManager requestLogin:paramsDic withSucess:^(ZLUserLoginModel *loginModel) {
+    [MKBLoginServiceManager requestLogin:paramsDic withSucess:^(MKBUserLoginModel *loginModel) {
         @strongify(self)
         [ZLAlertHUD hideHUD:self.view];
         
-        
         [ZLUserDefaults setObject:@"1" forKey:AUTOMATIC_LOGIN];
         
-        //        [_maskImageView removeFromSuperview];
-        //
-        [ZLUserManager sharedInstance].userModel = loginModel.content;
         
-        [self loginIM];
+        [_maskImageView removeFromSuperview];
         
-        ZLUserDataModel *contentModel = loginModel.content;
+        [MKBUserManager shareInstance].userModel = loginModel.content;
+        
+        MKBUserDataModel *contentModel = loginModel.content;
         self.contentModel=contentModel;
         self.loginButton.userInteractionEnabled = YES;
         
@@ -586,6 +589,7 @@
                 [ZLDataConfig set:ADVERT_IS_MOTION_LONGIN boolValue:YES];
             }
         }
+        [self enterMainUI];
         //        [self checkAllAddDefaultTextBoolWithBlock:^(BOOL isSuccess) {
         //            if (isSuccess) {
         //                [self enterMainUI];
@@ -619,39 +623,21 @@
         //        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:LOGIN_PASSWORD];
         [ZLUserDefaults setObject:@"0" forKey:AUTOMATIC_LOGIN];
     }];
-    */
+    
 }
 
-//获取已有教材
-//-(void)getMaterials
-//{
-//
-//    if (!_isgGetMaterials) {
-//        _isgGetMaterials=YES;
-//
-//        [_maskImageView removeFromSuperview];
-//        [self enterMainUI];
-//
-//        //登陆成功之后
-//        if ([ZLIFISNULL(self.contentModel.isFirstLogin) isEqualToString:@"1"]) {
-//            [self firstLoginAndResetPassword];
-//        }
-//
-//    }
-//
-//}
 
 //如果是第一次登陆则跳转重置密码界面
 - (void)firstLoginAndResetPassword {
     
-//    ZLAppDelegate *appDelegate = ((ZLAppDelegate *)[[UIApplication sharedApplication] delegate]);
-//    UIViewController *currentCtrl = appDelegate.window.rootViewController;
-//    ZLFindPassWordViewController *findPassWordViewController = [[ZLFindPassWordViewController alloc] init];
-//    findPassWordViewController.titleNameStr = @"为了您的账号安全，请重置密码";
-//    findPassWordViewController.servicePasswordType = ZLPageServicePasswordTypeResetPassword;
-//    [currentCtrl presentViewController:findPassWordViewController animated:YES completion:^{
-//
-//    }];
+    //    ZLAppDelegate *appDelegate = ((ZLAppDelegate *)[[UIApplication sharedApplication] delegate]);
+    //    UIViewController *currentCtrl = appDelegate.window.rootViewController;
+    //    ZLFindPassWordViewController *findPassWordViewController = [[ZLFindPassWordViewController alloc] init];
+    //    findPassWordViewController.titleNameStr = @"为了您的账号安全，请重置密码";
+    //    findPassWordViewController.servicePasswordType = ZLPageServicePasswordTypeResetPassword;
+    //    [currentCtrl presentViewController:findPassWordViewController animated:YES completion:^{
+    //
+    //    }];
 }
 //登陆成功后的UI界面
 - (void)enterMainUI {
@@ -746,7 +732,7 @@
     }
     //收起输入框
     _isShow = YES;
- 
+    
     [self determineWhetherTheLoginButtonClicked:nil];
 }
 
@@ -765,7 +751,7 @@
     ZLTextField *textField = noti.object;
     //收起输入框
     _isShow = YES;
- 
+    
     if (textField == _numberTextFieldView.zl_TextField) {
         _numberTextFieldView.layer.borderColor = UIColorRGBA(51,51,51, 0.5).CGColor;
         _passwordTextFieldView.layer.borderColor = UIColorRGBA(204,204,204, 0.5).CGColor;

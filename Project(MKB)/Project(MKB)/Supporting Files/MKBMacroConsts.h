@@ -11,12 +11,12 @@
 #pragma mark - API
 
 //TODO:周连
-
-
-static NSString *const AUTOMATIC_LOGIN = @"Automatic_Login";//是否自动登录
-static NSString *const ADVERT_IS_MOTION_LONGIN = @"ADVERT_IS_MOTION_LONGIN";   //自动登录或手动登录
-static NSString *const ADVERT_IS_LAUNCHANIMATION_END = @"ADVERT_IS_LaunchAnimation_end";   //自动登录或手动登录
-
+//是否自动登录
+static NSString *const AUTOMATIC_LOGIN = @"User/login";
+//自动登录或手动登录
+static NSString *const ADVERT_IS_MOTION_LONGIN = @"ADVERT_IS_MOTION_LONGIN";
+//自动登录或手动登录
+static NSString *const ADVERT_IS_LAUNCHANIMATION_END = @"ADVERT_IS_LaunchAnimation_end";
 
 static NSString *const LOGINUSERINFORMATION = @"UserLoginInformation"; //用户登录的信息
 
@@ -25,10 +25,15 @@ static NSString *const LOGIN_ACCOUNT = @"Login_Account";//账号的存储
 static NSString *const LOGIN_PASSWORD = @"Login_Password";//密码的存储
 
 static NSString *const LOGIN_USERPHOTO = @"Login_User_Photo";//头像的存储
+//登陆成功后返回的数据
+static NSString *const LOGIN_SUCCESS_INFORMATION = @"Login_Success_Information";
+//登陆成功后的用户的个人信息
+static NSString *const USER_PERSONAL_INFORMATION = @"User_Personal_Information";
 
-static NSString *const LOGIN_SUCCESS_INFORMATION = @"Login_Success_Information";//登陆成功后返回的数据
 
-static NSString *const USER_PERSONAL_INFORMATION = @"User_Personal_Information";//登陆成功后的用户的个人信息
+static NSString *const LOGIN_INTERFACE =@"UserInfo/LoginAccount";
+
+static NSString *const kAppVersion = @"appVersion";
 
 @interface MKBMacroConsts : NSObject
 
@@ -59,11 +64,14 @@ static NSString *const ZL_IM_OFFNETWORK_TIP  = @"世界上最遥远的距离就�
 
 #ifdef DEBUG
 
-#define kSdkChatBusiId 6893
+//苹果ID
+#define applestoreid 1320753024
+//苹果版本更新地址
+#define APPSTOREAPPIDVERSIONCHECK [NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=%d",applestoreid]
 
 #else
 
-#define kSdkChatBusiId 6893
+
 
 #endif
 

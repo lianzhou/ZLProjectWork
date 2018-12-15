@@ -9,22 +9,22 @@ platform :ios,'8.0'
 def pods
     pod 'ZLCommonsKit', :path => '../ZLCommonsKit'
     
- 
+    
     pod 'FXBlurView', '~> 1.6.4'
     pod 'ZXingObjC', '~> 3.0'
     
-      pod 'NJKWebViewProgress'
+    pod 'NJKWebViewProgress'
     # pod 'SDWebImage/WebP'
     
-      pod 'Aspects'
-      pod 'CocoaLumberjack'
-      pod 'SWTableViewCell'
+    pod 'Aspects'
+    pod 'CocoaLumberjack'
+    pod 'SWTableViewCell'
     # pod 'FSCalendar'
     # pod 'JPush'
     # pod 'PNChart'
-      pod 'SafeKit'
-
-   
+    pod 'SafeKit'
+    
+    
     
 end
 

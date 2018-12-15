@@ -24,16 +24,16 @@
                                                   ZLTabBarItemSelectedColor : UIColorHex(0x0093e8),
                                                   ZLTabBarItemColor : UIColorHex(0x999999),
                                                   };
-
+    
     NSDictionary *thirdTabBarItemsAttributes  = @{
-                                                   ZLTabBarItemController:@"ViewController",
-                                                   ZLTabBarItemTitle : @"工作台",
-                                                   ZLTabBarItemImage : @"tabbar_gongzuotai_normal",
-                                                   ZLTabBarItemSelectedImage : @"tabbar_gongzuotai_current",
-                                                   ZLTabBarItemSelectedColor : UIColorHex(0x0093e8),
-                                                   ZLTabBarItemColor : UIColorHex(0x999999),
-                                                   
-                                                   };
+                                                  ZLTabBarItemController:@"ViewController",
+                                                  ZLTabBarItemTitle : @"工作台",
+                                                  ZLTabBarItemImage : @"tabbar_gongzuotai_normal",
+                                                  ZLTabBarItemSelectedImage : @"tabbar_gongzuotai_current",
+                                                  ZLTabBarItemSelectedColor : UIColorHex(0x0093e8),
+                                                  ZLTabBarItemColor : UIColorHex(0x999999),
+                                                  
+                                                  };
     NSDictionary *fourthTabBarItemsAttributes  = @{
                                                    ZLTabBarItemController:@"ViewController",
                                                    ZLTabBarItemTitle : @"消息",
@@ -41,10 +41,10 @@
                                                    ZLTabBarItemSelectedImage : @"tabbar_xiaoxi_current",
                                                    ZLTabBarItemSelectedColor : UIColorHex(0x0093e8),
                                                    ZLTabBarItemColor : UIColorHex(0x999999),
-
+                                                   
                                                    };
     
-   
+    
     
     NSDictionary *fiveTabBarItemsAttributes = @{
                                                 ZLTabBarItemController:@"ViewController",
